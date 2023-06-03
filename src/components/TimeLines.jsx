@@ -32,14 +32,14 @@ const TimeLines = () => {
                     activeItemIndex={false}
                     hideControls={true}
                     theme={{
-                        cardDetailsColor:'rgba(0, 0, 0, 0.664)', 
+                        cardDetailsColor: 'rgba(0, 0, 0, 0.664)',
                         primary: 'red',
                         titleColor: 'black',
                         cardTitleColor: 'black',
                         cardSubtitleColor: 'rgba(0, 0, 0, 0.664)',
-                        detailsColor:"red"     
+                        detailsColor: "red"
                     }}
-                    
+
 
                 />
             </div>
