@@ -1,12 +1,20 @@
 import personalImage1 from '../assets/ekene_logo.png';
 import personalImage2 from '../assets/ekene_logo_red.png';
-import dataanalysis from '../assets/data_chart.png';
-import businessanalysis from '../assets/business_chart.png';
-import computing from '../assets/computing.png';
-import cloud from '../assets/cloud_computing.png';
-import collaboration from '../assets/collaboration.png';
-import machinelearning from '../assets/machine_data.png';
+import randompic from '../assets/man_transparent.png'
+import dataanalysis from '../assets/data_chart.svg';
+import businessanalysis from '../assets/businessanalysis.svg';
+import computing from '../assets/computing.svg';
+import cloud from '../assets/cloud_computing.svg';
+import collaboration from '../assets/collaboration.svg';
+import machinelearning from '../assets/machine_data.svg';
+import logo1 from '../assets/ekenelogo1.svg'
+import logo2 from '../assets/ekenelogo2.svg'
 import { MdOutlineWhatsapp, MdOutlineEmail } from 'react-icons/md'
+import { AiTwotoneMail } from 'react-icons/ai'
+import { FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa'
+import icon1 from '../assets/Icon1.svg'
+import icon2 from '../assets/Icon2.svg'
+import icon3 from '../assets/Icon3.svg'
 
 
 export const authorInfo = {
@@ -16,7 +24,10 @@ export const authorInfo = {
     location: "lorem ipsum dolor sit",
     jobTitle1: "Data Scientist",
     jobTitle2: "Business Analyst",
-    img: personalImage2,
+    img2: personalImage2,
+    img: randompic,
+    logo1: logo1,
+    logo2: logo2,
 
 }
 
@@ -28,8 +39,8 @@ export const authorDetails = {
     personalDetail2: `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
     Est, aliquam doloremque dolore rem doloribus voluptate velit asperiores,
     accusamus et, assumenda fugit quasi? Excepturi laborum reprehenderit voluptates ducimus harum veritatis corrupti!`,
-
 }
+
 
 export const aboutAuthor = {
     title: "ABOUT ME",
@@ -97,7 +108,7 @@ export const authorSkils = [
     {
         id: "1",
         title: "Data Analytics",
-        skills1: "statistical methods",
+        skills1: "Statistical methods",
         skills2: "Data Mining",
         skills3: "Visualization"
     },
@@ -125,6 +136,12 @@ export const authorSkils = [
 ]
 
 export const socialsIcon = {
-    emailIcon: <MdOutlineEmail className='socialIcons' />,
+    emailIcon: <AiTwotoneMail className='socialIcons' />,
     whatsappIcon: <MdOutlineWhatsapp className='socialIcons' />,
+    linkedIn: <FaLinkedin className='socialIcons' />,
+    instagram: <FaInstagram className='socialIcons' />,
+    twitter: <FaTwitter className='socialIcons' />,
+    icon1: icon1,
+    icon2: icon2,
+    icon3: icon3,
 }

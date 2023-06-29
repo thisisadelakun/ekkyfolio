@@ -1,8 +1,6 @@
 import React from 'react';
-import { authorInfo } from '../localStorage/db';
-import email from '../assets/email_icon.png';
-import twitter from '../assets/twitter_icon.png';
-import linkedin from '../assets/linkedin_icon.png'
+import { authorInfo } from '../../localStorage/db';
+import { socialsIcon } from '../../localStorage/db';
 
 const Footer = () => {
   return (
@@ -17,9 +15,10 @@ const Footer = () => {
           <div className='wondering'>
             <span>
               WONDERING HOW YOU CAN MAKE THE BEST DECISIONS USING YOUR DATA?
-            </span></div>
+            </span>
+          </div>
           <div className='mail_to'>
-            <span>
+            <span >
               <a href="mailto:johndoe@gmail">Get in touch</a>
             </span>
           </div>
@@ -34,13 +33,13 @@ const Footer = () => {
             <a href="tel:+1234567890">{authorInfo.number}</a>
           </div>
           <div className='social_media'>
-            <a href="mailto:johndoe@gmail" target='_blank'><img src={linkedin} alt="email" width="32px" fluid /></a>
-            <a href="www.linkedin.com"><img src={email} alt="email" width="30px" fluid /></a>
-            <a href="www.twitter.com" target='_blank'><img src={twitter} alt="email" width="32px" fluid /></a>
+            <a href="www.linkedin.com"><img src={socialsIcon.icon1} alt="email" width={35} /></a>
+            <a href="www.github.com"><img src={socialsIcon.icon3} alt="email" width={35} /></a>
+            <a href="www.twitter.com" target='_blank'><img src={socialsIcon.icon2} alt="email" width={35} /></a>
           </div>
         </div>
         <div className="copyright">
-          <span>© 2023 {authorInfo.name}</span>
+          <span className="copyRight">&copy; {new Date().getFullYear()} {authorInfo.name}.</span>
         </div>
       </div>
     </div>

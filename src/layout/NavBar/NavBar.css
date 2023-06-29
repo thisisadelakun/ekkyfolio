@@ -1,0 +1,136 @@
+.nav-container {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    left: 0;
+    transition: background-color 0.3s ease;
+}
+
+body.light-mode .offcanvasbgr,
+body.light-mode .show-background {
+    background-color: #F9FAFA;
+}
+
+body.dark-mode .offcanvasbgr,
+body.dark-mode .show-background {
+    background-color: #0D1117;
+}
+
+body.light-mode .nav-container {
+    color: #1a1a1a;
+}
+
+body.dark-mode .nav-container {
+    color: mintcream;
+}
+
+body.dark-mode .nav-link {
+    color: rgba(245, 255, 250, 0.822);
+}
+
+body.light-mode .nav-link {
+    color: #949292;
+}
+
+body.light-mode .offcanvas-header .btn-close {
+    color: #000;
+    /* Set the desired color for light mode */
+}
+
+body.dark-mode .offcanvas-header .btn-close {
+    color: #fff;
+    /* Set the desired color for dark mode */
+}
+
+
+.mb-2 {
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+
+.flex-grow-1 {
+    margin-top: 0.7rem;
+    text-align: center;
+    display: flex;
+}
+
+.title-logo {
+    width: fit-content;
+    cursor: pointer;
+}
+
+.title-logo img {
+    width: 28px;
+}
+
+.red_logo {
+    position: relative;
+    left: -18px;
+    top: 10px;
+}
+
+li {
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-item-border::before,
+.nav-item-border::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #808080;
+    transition: width 0.3s ease;
+}
+
+.nav-item-border::before {
+    top: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.nav-item-border::after {
+    bottom: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.nav-item-border:hover::before {
+    width: 100%;
+    transform: scaleX(0);
+}
+
+.nav-item-border:hover::after {
+    width: 100%;
+    transform: scaleX(1);
+}
+
+@media only screen and (max-width: 576px) {
+    .flex-grow-1 {
+        width: 80%;
+        margin: 1rem auto;
+        display: flex;
+        justify-content: end;
+    }
+}
+
+@media only screen and (min-width: 998px) {
+    .menu-bar {
+        display: none;
+    }
+
+    body.dark-mode .nav-link {
+        color: rgba(245, 255, 250, 0.822);
+    }
+
+    body.light-mode .nav-link {
+        color: #949292;
+    }
+}

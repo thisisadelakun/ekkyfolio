@@ -1,58 +1,70 @@
-/* ------ NAVBAR ----- */
-.nav-container {
-    position: fixed;
-    width: 100%;
-    z-index: 500;
-    height: 73px;
-    margin: auto;
-    margin-bottom: 36px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px 0 rgba(179, 174, 174, 0.2), 0 6px 20px 0 rgba(248, 238, 238, 0.19);
-}
-
-.mb-2 {
-    align-items: center;
-}
-
-.flex-grow-1 {
-    margin-top: 0.7rem;
-}
-
-.title-logo img {
-    width: 28px;
-}
-
-.red_logo {
-    position: relative;
-    left: -18px;
-    top: 10px;
-}
-
-.menu-link {
-    color: rgba(0, 0, 0, 0.829);
-    font-size: 14px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-}
-
-.menu-link:hover {
-    color: crimson;
-    zoom: 120%;
-    transition: 0.3S ease-in-out;
-    box-shadow: 0 4px 8px 0 rgba(179, 174, 174, 0.2), 0 6px 20px 0 rgba(248, 238, 238, 0.19);
-}
-
-
-/* -------  HOME ------  */
 header {
-    background-color: rgba(240, 248, 255, 0.342);
     height: 100%;
     width: 100%;
+}
+
+body.dark-mode .header-home {
+    background: linear-gradient(to bottom, transparent 80%, #29374b2c 90%);
+    color: mintcream;
+}
+
+body.light-mode .header-home {
+    background: linear-gradient(to bottom, transparent, #F9FAFA);
+    color: #1A1A1A;
+    position: relative;
+}
+
+.header-home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../assets/bg-shape.png);
+    background-repeat: no-repeat;
+    background-size: 1000px;
+    background-position: top;
+    /* filter: blur(1px); */
+    /* opacity: 0.8; */
+    animation: moveBackground 20s linear infinite;
+    clip-path: inset(0);
+    z-index: -1;
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: top;
+    }
+
+    50% {
+        background-position: bottom;
+    }
+
+    100% {
+        background-position: top;
+    }
+}
+
+.header-home::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.header-home {
+    position: relative;
 }
 
 .header-col {
     margin: auto;
     padding: 7rem 0 5rem 0;
+    position: relative;
+    z-index: 1;
 }
 
 .i_am {
@@ -70,34 +82,36 @@ header {
 }
 
 .emphasis {
-    color: red;
+    color: #0073B6;
 }
 
 .resume_button {
     margin: 3rem 0;
+    z-index: 999;
 }
 
-.download_button {
+.resume_button a {
+    color: #F5F5F5;
     text-decoration: none;
-    padding: 0.8rem 2rem;
-    border-radius: 50px;
-    color: white;
-    font-family: 'Montserrat', sans-serif;
+    padding: 0.5rem 2rem;
+    border-radius: 10px;
+    font-family: 'Kanit', sans-serif;
     font-size: 18px;
-    background-image: linear-gradient(to right, crimson, rgba(255, 8, 8, 0.815));
-    box-shadow: 0 4px 8px 0 rgb(190, 154, 154), 0 6px 20px 0 rgba(248, 238, 238, 0.19);
+    background-color: #0073B6;
+    box-shadow: 0 4px 4px 0 #96b9d727, 0 6px 10px 0 #0073b657;
+    z-index: 999;
+
 }
 
-.download_button:hover {
-    transition: 0.5s ease-in-out;
-    color: white;
-    zoom: 110%;
-    box-shadow: 0 4px 8px 0 rgb(129, 96, 96), 0 6px 20px 0 rgba(248, 238, 238, 0.19);
-
+.resume_button:hover {
+    transform: scale(1.10);
+    transition: 0.3s ease;
+    z-index: 2;
 }
 
 .hr {
-    color: rgba(220, 20, 60, 0.418);
+    border: none;
+    border-top: 2px solid #0073b68a;
 }
 
 .header-image img {
@@ -113,15 +127,26 @@ header {
 }
 
 /* ---- main ---- */
-.main-col1,
-.main-col2 {
-    padding: 4rem 0;
+main {
+    height: 100%;
+}
+
+body.light-mode .home_main {
+    background-image: url(../assets/paper1.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: top;
+}
+
+.main-col1 {
+    padding: 9rem 0;
 }
 
 
+
 .main-text-first-p {
-    border-left: 2px solid red;
-    color: rgba(0, 0, 0, 0.555);
+    border-left: 2px solid #0073b6;
+    color: #949292;
     padding: 2rem;
     font-family: 'Montserrat', sans-serif;
 }
@@ -131,14 +156,19 @@ header {
 }
 
 .read_more {
-    background-color: crimson;
+    background-color: #0073B6;
     padding: 1rem;
+    cursor: pointer;
 }
 
 .read_more_link {
     color: white;
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
+}
+
+.main-col2 {
+    padding: 4rem 0;
 }
 
 .main-col2_text {
@@ -153,13 +183,22 @@ header {
     font-weight: 700;
 }
 
+.main-col2_text h2 {
+    margin: 1rem auto;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    padding-bottom: 5px;
+}
+
 .main-col2_text span {
-    margin: 1rem 0;
-    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    margin: 2rem auto;
+    font-family: 'Kanit', sans-serif;
     font-size: 20px;
     width: 80%;
-    margin: auto;
-    color: rgba(0, 0, 0, 0.514);
+    text-align: center;
+    color: #949292;
 }
 
 .skills_col,
@@ -172,26 +211,33 @@ header {
     justify-content: center;
 }
 
+
 .service_list {
     text-align: center;
 }
 
 .service_list h5,
 .skills_list h5 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Kanit', sans-serif;
 }
 
 .service_list p,
 .skills-list p {
-    color: rgba(0, 0, 0, 0.514);
+    color: #949292;
     font-family: 'Montserrat', sans-serif;
 }
 
-/* ---- article ----- */
 article {
-    background-color: rgba(240, 248, 255, 0.342);
     height: 100%;
     width: 100%;
+}
+
+body.dark-mode article {
+    background-color: #0D1117;
+}
+
+body.light-mode article {
+    background-color: #F5F5F5;
 }
 
 .article_col {
@@ -201,19 +247,26 @@ article {
 
 .article_header h2 {
     text-align: center;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
 }
 
 .article_header p {
-    text-align: center;
-    color: rgba(0, 0, 0, 0.514);
+    text-align: left;
     font-family: 'Montserrat', sans-serif;
     margin: 1rem 0;
+    color: #949292;
 }
 
 .project_card {
     margin: 3rem 0;
+}
+
+.project_card:hover {
+    transform: scale(1.10);
+    transition: 0.3s ease;
+    z-index: 2;
+    cursor: pointer;
 }
 
 
@@ -226,7 +279,7 @@ article {
 }
 
 .footer_header_col {
-    background-color: rgb(30, 30, 58);
+    background-color: #1a1a1a;
     padding: 1rem;
     color: white;
 }
@@ -266,21 +319,21 @@ article {
     background-color: white;
     width: 100%;
     padding: 0.8rem 5rem;
-    color: red;
+    color: #0073B6;
     font-size: 18px;
 
     font-family: 'Montserrat', sans-serif;
 }
 
 .mail_to a:hover {
-    background-color: crimson;
+    background-color: #0073B6;
     color: ivory;
     transition: 0.3s ease-in-out;
     box-shadow: 0 4px 8px 0 rgb(129, 96, 96), 0 6px 20px 0 rgba(248, 238, 238, 0.19);
 }
 
 .footer_main {
-    background-color: rgb(10, 10, 41);
+    background-color: #0D1117;
 }
 
 .author_infos-col {
@@ -303,7 +356,7 @@ article {
 }
 
 .author_info a:hover {
-    color: crimson;
+    color: #0073B6;
 }
 
 .social_media {
@@ -312,8 +365,9 @@ article {
 }
 
 .social_media a:hover {
-    zoom: 140%;
-    transition: 0.3s ease-in-out;
+    transform: scale(1.10);
+    transition: 0.3s ease;
+    z-index: 2;
 }
 
 .copyright {
@@ -329,12 +383,12 @@ article {
 .about,
 .portfolio {
     position: relative;
+    margin: -10px;
 }
 
-.about_header,
-.portfolio_header {
-    background-image: linear-gradient(to right, crimson, rgba(255, 8, 8, 0.815));
-    padding: 5rem 0;
+.about_header {
+    position: relative;
+    padding: 7rem 0;
     text-align: center;
     height: 100%;
     color: #ffffff;
@@ -342,15 +396,31 @@ article {
     font-weight: 700;
 }
 
+.about_header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    background-image: url('../assets/sin_city.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(30%);
+    clip-path: inset(0);
+    z-index: -1;
+}
+
 .about_header h1,
-.portfolio_header h1 {
-    font-size: 50px;
-    margin-top: 4rem;
+.about_header .socios {
+    position: relative;
+    z-index: 2;
 }
 
 .socios {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     text-align: center;
     justify-content: center;
     margin: 1rem auto;
@@ -359,19 +429,14 @@ article {
 
 .socios a {
     text-align: center;
-    color: #ffffffcb;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
 }
 
-.socios a:hover {
-    transition: 0.3s ease-in-out;
-    color: #ffffff;
-}
 
 .about_main,
 .portfolio {
     padding: 2rem 0;
+    background-image: none;
 }
 
 .about_profile {
@@ -419,6 +484,7 @@ article {
         padding: 0.8rem 3rem;
     }
 }
+
 @media only screen and (min-width: 576px) {
     .menu-bar {
         display: none;
@@ -477,6 +543,4 @@ article {
         flex-direction: column;
         gap: 0.5rem;
     }
-
-
 }

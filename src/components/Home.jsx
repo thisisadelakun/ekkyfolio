@@ -9,15 +9,17 @@ import { authorProjects } from '../localStorage/db2';
 const Home = () => {
   return (
     <div>
-      <header>
+      <header className='header-home'>
         <div className="header-col container">
           <div className='header-text'>
-            <span className='i_am'>I am</span>
+            <span className='i_am'>Hi, I am</span>
             <h1>{authorInfo.name}</h1>
-            <p>&mdash; a <span className='emphasis'>{authorInfo.jobTitle1}</span> and a <span className='emphasis'>{authorInfo.jobTitle2}</span>.</p>
+            <p>&mdash; a <span className='emphasis'>
+              {authorInfo.jobTitle1}</span> and a <span className='emphasis'>{authorInfo.jobTitle2}</span>.
+            </p>
             <div className='resume_button'>
-              <a href="" download="Ekene-Emmanuel.pdf" className="download_button">
-                <small className='resume_smalltag'>RESUME</small>
+              <a className='' href="/portfolio" >
+                PORTFOLIO
               </a>
             </div>
           </div>
@@ -28,18 +30,18 @@ const Home = () => {
         </div>
       </header>
 
-      <main>
+      <main className='home_main'>
         <div className='main-col1 container'>
           <h2>{authorDetails.title}</h2>
 
           <div className='main-text-first-p'>
-            <p>{authorDetails.personalDetail1}</p>
+            <p>I am Ekene Emmanuel, {authorDetails.personalDetail1}</p>
             <p>{authorDetails.personalDetail2}</p>
           </div>
 
           <div className="read_more_div">
-            <span className='read_more'>
-              <Link className='read_more_link' to="/about">READ MORE</Link>
+            <span className='shadow read_more'>
+              <a className='read_more_link' href="/about-me">READ MORE</a>
             </span>
           </div>
         </div>
@@ -57,7 +59,7 @@ const Home = () => {
           <div className='service_col'>
             {authorServices.map(service => (
               <div key={service.id} className='service_list'>
-                <img src={service.icon} alt={service.title} />
+                <img src={service.icon} alt={service.title} width={50} />
                 <h5>{service.title}</h5>
                 <p>{service.info}</p>
               </div>
@@ -75,9 +77,9 @@ const Home = () => {
             {authorSkils.map(skill => (
               <div key={skill.id} className='skills-list'>
                 <h5>{skill.title}</h5>
-                <p><span className='emphasis'>&mdash;</span>{skill.skills1}</p>
-                <p><span className='emphasis'>&mdash;</span>{skill.skills2}</p>
-                <p><span className='emphasis'>&mdash;</span>{skill.skills3}</p>
+                <p><span className='emphasis'>&mdash;</span> {skill.skills1}</p>
+                <p><span className='emphasis'>&mdash;</span> {skill.skills2}</p>
+                <p><span className='emphasis'>&mdash;</span> {skill.skills3}</p>
               </div>
             ))}
           </div>
@@ -89,14 +91,14 @@ const Home = () => {
         <div className='article_col container'>
           <div className="article_header">
             <h2>
-              MY PROJECTS
+              FEATURED WORKS
             </h2>
-            <p>Take a look at some of my works.</p>
+            <p>Take a tour through a curated collection of my exceptional featured works.</p>
           </div>
 
           <div className="article_list">
             {authorProjects.slice(0, 3).map(project => (
-              <Card key={project.id} className='project_card'>
+              <Card key={project.id} className='project_card shadow'>
                 <Card.Img variant="top" src={project.img} height="230px" fluid />
                 <hr className='hr' />
                 <Card.Body>
