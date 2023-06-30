@@ -3,6 +3,7 @@ import { aboutAuthor, authorDetails, authorInfo, socialsIcon } from '../localSto
 import TimeLines from './TimeLines';
 
 import { Link } from 'react-scroll';
+import Faq from './Faq';
 
 const About = () => {
     return (
@@ -10,7 +11,7 @@ const About = () => {
             <header>
                 <div className="about_header">
                     <div className="about_header_txt">
-                        <h1>ABOUT ME</h1>
+                        <h1>About Me</h1>
                         <div className='socios'>
                             <a href="https://www.linkedin.com/in/ekene-emmanuel-0b9167238" target="_blank" rel="noopener noreferrer">
                                 {socialsIcon.linkedIn}
@@ -27,15 +28,15 @@ const About = () => {
 
             </header>
 
-            <main className='about_main'>
+            <main className='about_main container'>
                 <div className='about_profile container'>
-                    <img src={authorInfo.img} alt={authorInfo.name} fluid />
+                    <img src={authorInfo.img} alt={authorInfo.name} className='img-fluid' />
 
                     <div className="about_profile_text">
                         <h2>{authorDetails.title}</h2>
                         <p>" No great man lives in vain "</p>
                         <div className="read_more_div hide">
-                            <span className='read_more'>
+                            <span className='read_more shadow'>
                                 <Link
                                     style={{ cursor: "pointer" }}
                                     className='read_more_link'
@@ -72,6 +73,10 @@ const About = () => {
                     <TimeLines />
                 </div>
             </article>
+
+            <footer>
+                <Faq/>
+            </footer>
         </div>
     )
 }

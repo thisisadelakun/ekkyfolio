@@ -33,16 +33,27 @@ body.light-mode .nav-link {
     color: #949292;
 }
 
-body.light-mode .offcanvas-header .btn-close {
+body.light-mode .custom-close-button {
     color: #000;
-    /* Set the desired color for light mode */
+    background-color: transparent;
+    border: none;
+    font-size: 28px;
 }
 
-body.dark-mode .offcanvas-header .btn-close {
-    color: #fff;
-    /* Set the desired color for dark mode */
+body.dark-mode .custom-close-button {
+    color: mintcream;
+    background-color: transparent;
+    border: none;
+    font-size: 28px;
 }
 
+button .custom-close-button {
+    border: none;
+}
+
+button:focus {
+    outline: none;
+}
 
 .mb-2 {
     align-items: center;
@@ -77,6 +88,7 @@ li {
     font-family: 'Kanit', sans-serif;
     font-weight: 500;
     position: relative;
+    text-transform: lowercase;
 }
 
 .nav-item-border::before,
@@ -112,6 +124,13 @@ li {
     transform: scaleX(1);
 }
 
+.nav-link-socios {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
 @media only screen and (max-width: 576px) {
     .flex-grow-1 {
         width: 80%;
@@ -122,6 +141,8 @@ li {
 }
 
 @media only screen and (min-width: 998px) {
+
+    .nav-link-socios,
     .menu-bar {
         display: none;
     }

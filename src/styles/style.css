@@ -68,7 +68,7 @@ body.light-mode .header-home {
 }
 
 .i_am {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Kanit', sans-serif;
 }
 
 .header-text h1 {
@@ -99,12 +99,11 @@ body.light-mode .header-home {
     font-size: 18px;
     background-color: #0073B6;
     box-shadow: 0 4px 4px 0 #96b9d727, 0 6px 10px 0 #0073b657;
-    z-index: 999;
-
+    z-index: 2;
 }
 
 .resume_button:hover {
-    transform: scale(1.10);
+    zoom: 102%;
     transition: 0.3s ease;
     z-index: 2;
 }
@@ -114,10 +113,14 @@ body.light-mode .header-home {
     border-top: 2px solid #0073b68a;
 }
 
-.header-image img {
-    width: 90%;
+.header-image {
+    width: 100%;
     margin: auto;
     align-items: center;
+}
+
+.header-image img {
+    width: 450px;
 }
 
 .header-image p {
@@ -435,7 +438,7 @@ body.light-mode article {
 
 .about_main,
 .portfolio {
-    padding: 2rem 0;
+    padding: 4rem 0;
     background-image: none;
 }
 
@@ -444,6 +447,10 @@ body.light-mode article {
     flex-direction: column;
     margin: auto;
     justify-content: center;
+}
+
+.about_profile img {
+    width: 450px;
 }
 
 .about_profile_text {
@@ -458,11 +465,11 @@ body.light-mode article {
 }
 
 .about_profile_text p {
-    color: rgba(0, 0, 0, 0.664);
+    color: #808880;
     letter-spacing: 3px;
     font-size: 18px;
     font-family: 'Montserrat', sans-serif;
-    text-align: center;
+    text-align: left;
 }
 
 .about_main-col {
@@ -477,6 +484,15 @@ body.light-mode article {
 .about_text p {
     color: rgba(0, 0, 0, 0.664);
     font-family: 'Montserrat', sans-serif;
+}
+
+.experience_col{
+    text-align: center;
+}
+
+.experience_col h1{
+    font-family: 'Kanit', sans-serif;
+    padding: 2rem 0;
 }
 
 @media only screen and (max-width: 350px) {
@@ -499,6 +515,10 @@ body.light-mode article {
 
     .header-text {
         margin: 10rem 0;
+    }
+
+    .header-text h1 {
+        font-size: 50px;
     }
 
     .header-image p {

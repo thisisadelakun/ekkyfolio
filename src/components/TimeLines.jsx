@@ -33,7 +33,7 @@ const TimeLines = () => {
                     hideControls={true}
                     theme={{
                         cardDetailsColor: 'rgba(0, 0, 0, 0.664)',
-                        primary: 'red',
+                        primary: 'blue',
                         titleColor: 'black',
                         cardTitleColor: 'black',
                         cardSubtitleColor: 'rgba(0, 0, 0, 0.664)',

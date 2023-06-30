@@ -25,7 +25,7 @@ const Home = () => {
           </div>
 
           <div className='header-image '>
-            <img src={authorInfo.img} alt={authorInfo.name} fluid />
+            <img src={authorInfo.img} alt={authorInfo.name} className='img-fluid' />
           </div>
         </div>
       </header>
@@ -114,8 +114,8 @@ const Home = () => {
           </div>
 
           <div className="read_more_div">
-            <span className='read_more'>
-              <Link className='read_more_link' to="/portfolio">SEE ALL</Link>
+            <span className='read_more shadow'>
+              <Link className='read_more_link ' to="/portfolio">SEE ALL</Link>
             </span>
           </div>
         </div>

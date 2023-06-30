@@ -25,14 +25,15 @@ const Theme = () => {
         <button
             style={{
                 display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
+                // alignItems: 'center',
+                // justifyContent: 'center',
                 backgroundColor: 'transparent',
+                textAlign:"center",
                 border: 'none',
                 cursor: 'pointer',
                 padding: '0',
-                marginTop:"0.8rem",
-                fontSize:"14px",
+                margin:"0.7rem auto",
+                // fontSize:"14px",
                 transition: 'color 0.3s ease',
             }}
             className={`nav-link theme-button ${isNightMode ? 'night-mode' : 'day-mode'}`}

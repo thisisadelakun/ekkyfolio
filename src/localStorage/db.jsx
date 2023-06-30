@@ -1,6 +1,4 @@
-import personalImage1 from '../assets/ekene_logo.png';
-import personalImage2 from '../assets/ekene_logo_red.png';
-import randompic from '../assets/man_transparent.png'
+import profilepic from '../assets/ekky_folio.jpg'
 import dataanalysis from '../assets/data_chart.svg';
 import businessanalysis from '../assets/businessanalysis.svg';
 import computing from '../assets/computing.svg';
@@ -24,8 +22,7 @@ export const authorInfo = {
     location: "lorem ipsum dolor sit",
     jobTitle1: "Data Scientist",
     jobTitle2: "Business Analyst",
-    img2: personalImage2,
-    img: randompic,
+    img: profilepic,
     logo1: logo1,
     logo2: logo2,
 
@@ -33,7 +30,7 @@ export const authorInfo = {
 
 export const authorDetails = {
     title: "PERSONAL DETAILS",
-    personalDetail1: `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    personalDetail1: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
     Est, aliquam doloremque dolore rem doloribus voluptate velit asperiores,
     accusamus et, assumenda fugit quasi? Excepturi laborum reprehenderit voluptates ducimus harum veritatis corrupti!`,
     personalDetail2: `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
@@ -44,7 +41,7 @@ export const authorDetails = {
 
 export const aboutAuthor = {
     title: "ABOUT ME",
-    img: personalImage1,
+    img: profilepic,
     aboutMe1: `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
     Est, aliquam doloremque dolore rem doloribus voluptate velit asperiores,
     accusamus et, assumenda fugit quasi? Excepturi laborum reprehenderit voluptates ducimus harum veritatis corrupti!`,

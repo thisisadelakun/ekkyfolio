@@ -3,17 +3,20 @@ import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import '../NavBar/NavBar.css';
 
-import { authorInfo } from '../../localStorage/db'
+import { authorInfo, socialsIcon } from '../../localStorage/db'
 import Theme from '../../localStorage/Theme';
 
 // import react icons here
 import { FiMenu } from 'react-icons/fi';
+import { CgClose } from 'react-icons/cg';
+import { FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa'
 
 //  import bootsrap components here
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+
 
 const NavBar = () => {
     const [show, setShow] = useState(false);
@@ -62,8 +65,8 @@ const NavBar = () => {
                         <FiMenu
                             onClick={handleShow}
                             aria-controls={`offcanvasNavbar-expand-${expand}`}
-                            style={{ width: "30px", height: "50px", cursor: "pointer" }}
-                            className='menu-bar nav-link'
+                            style={{ width: "30px", height: "50px", cursor: "pointer", marginTop:"1rem" }}
+                            className='menu-bar'
                         />
                         <Navbar.Offcanvas
                             show={show} onHide={handleClose}
@@ -72,13 +75,19 @@ const NavBar = () => {
                             placement="end"
                             className="offcanvasbgr"
                             style={{ width: "100%" }}
-                            
+
                         >
-                            <Offcanvas.Header className='offcanvas-header' closeButton>
+                            <Offcanvas.Header className="offcanvas-header">
                                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                                    {/* Empty  */}
+                                    {/* Empty */}
                                 </Offcanvas.Title>
+                                <button className="custom-close-button" onClick={handleClose}>
+                                    <CgClose className='custom-close-button' />
+                                </button>
                             </Offcanvas.Header>
+
+
+
                             <Offcanvas.Body>
                                 <Nav className="justify-content-end flex-grow-1 pe-0 gap-2">
 
@@ -115,6 +124,17 @@ const NavBar = () => {
                                     </li>
                                     <li className="nav-item nav-item-border">
                                         <Link
+                                            to="/portfolio"
+                                            className="nav-link"
+                                            onClick={() => closeMenu()}
+                                            exact="true"
+                                        >
+                                            BLOG
+
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item nav-item-border">
+                                        <Link
                                             to="/contact-me"
                                             className="nav-link"
                                             onClick={() => closeMenu()}
@@ -123,8 +143,21 @@ const NavBar = () => {
                                             CONTACT
                                         </Link>
                                     </li>
-                                    <li className="nav-item">
+                                    <li className="nav-item ">
                                         <Theme className="nav-link" />
+                                    </li>
+
+                                    <li className='nav-link-socios'>
+                                        <a href="https://www.linkedin.com/in/ekene-emmanuel-0b9167238" target="_blank" rel="noopener noreferrer">
+                                            {socialsIcon.linkedIn}
+                                        </a>
+                                        <a href="https://twitter.com/ekky_boss" target="_blank" rel="noopener noreferrer">
+                                            {socialsIcon.twitter}
+                                        </a>
+                                        <a href="https://www.instagram.com/ekky_boss" target="_blank" rel="noopener noreferrer">
+                                            {socialsIcon.instagram}
+                                        </a>
+
                                     </li>
                                 </Nav>
                             </Offcanvas.Body>
