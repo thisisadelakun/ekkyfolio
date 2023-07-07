@@ -4,9 +4,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow-x: hidden
 }
-
-;
 
 :root {
   line-height: 1.5;
@@ -41,7 +40,7 @@ body.dark-mode {
   transition: 0.5s ease;
   color: rgba(245, 255, 250, 0.822);
 
-  
+
 }
 
 h1 {

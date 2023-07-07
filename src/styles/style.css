@@ -206,6 +206,11 @@ body.light-mode .main-colbgr {
     font-family: 'Montserrat', sans-serif;
 }
 
+.main-col1 {
+    padding: 2rem 0;
+    position: relative;
+}
+
 .main-col2 {
     padding: 4rem 0;
 }

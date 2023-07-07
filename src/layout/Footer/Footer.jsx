@@ -30,7 +30,6 @@ const Footer = () => {
           <div className="author_info">
             <p>{authorInfo.name}</p>
             <a href="mailto:info@ekeneemanuel.com">{authorInfo.email}</a> <br />
-            <a href="tel:+1234567890">{authorInfo.number}</a>
           </div>
           <div className='social_media'>
             <a href="https://www.linkedin.com/in/ekene-emmanuel-0b9167238" target="_blank" rel="noopener noreferrer">
