@@ -10,7 +10,7 @@ const ContactPage = () => {
       <header>
         <div className="contact-page-header">
           <div className="contact-page-header-txt">
-            <h1>Reach Out</h1>
+            <h1>CONTACT ME</h1>
             <div className='socios'>
               <a href="https://www.linkedin.com/in/ekene-emmanuel-0b9167238" target="_blank" rel="noopener noreferrer">
                 {socialsIcon.linkedIn}

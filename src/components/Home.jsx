@@ -161,8 +161,7 @@ const Home = ({ ...rest }) => {
 
 
       <main className='home_main'>
-        <div className="main-colbgr">
-        </div>
+        <div className="main-colbgr"></div>
 
         {authorInfoLoading || !authorInfo ? (
           <div className='main-col1 container'>

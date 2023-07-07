@@ -1,6 +1,9 @@
-import React, { useEffect, useState, lazy, Suspense } from 'react';
+import React, { useEffect, useState, lazy, Suspense, startTransition } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
+
+import Loading from './hooks/loading/Loading';
+import Layout from './layout/Layout';
 
 const Home = lazy(() => import('./components/Home'));
 const About = lazy(() => import('./components/About'));
@@ -8,8 +11,6 @@ const Archive = lazy(() => import('./components/Portfolio'));
 const ContactPage = lazy(() => import('./components/contact/ContactPage'));
 const AdminUI = lazy(() => import('./admin/adminUI/AdminUI'));
 const Blog = lazy(() => import('./components/blog/Blog'));
-
-import Loading from './hooks/loading/Loading';
 
 function App() {
   const queryClient = new QueryClient();
@@ -24,7 +25,6 @@ function App() {
         behavior: 'smooth',
       });
     }, [pathname]);
-
 
     return null;
   };
@@ -44,23 +44,66 @@ function App() {
           {isLoading ? ( // Display loading screen while isLoading is true
             <Loading />
           ) : (
-            <Layout >
+            <Layout>
               <ScrollToTop />
-              <Suspense fallback={<Loading />}></Suspense>
-              <Routes>
-                <Route index element={<Home />} />
-                <Route path='about-me' element={<About />} />
-                <Route path='portfolio' element={<Archive />} />
-                <Route path='contact-me' element={<ContactPage />} />
-                <Route path='my-blog' element={<Blog />} />
-                <Route path='xyzadmin123' element={<AdminUI />} />
-              </Routes>
-            </Layout >
+              <Suspense fallback={<Loading />}>
+                <Routes>
+                  <Route
+                    index
+                    element={(
+                      <React.Suspense fallback={<Loading />}>
+                        <Home />
+                      </React.Suspense>
+                    )}
+                  />
+                  <Route
+                    path="about-me"
+                    element={(
+                      <React.Suspense fallback={<Loading />}>
+                        <About />
+                      </React.Suspense>
+                    )}
+                  />
+                  <Route
+                    path="portfolio"
+                    element={(
+                      <React.Suspense fallback={<Loading />}>
+                        <Archive />
+                      </React.Suspense>
+                    )}
+                  />
+                  <Route
+                    path="contact-me"
+                    element={(
+                      <React.Suspense fallback={<Loading />}>
+                        <ContactPage />
+                      </React.Suspense>
+                    )}
+                  />
+                  <Route
+                    path="my-blog"
+                    element={(
+                      <React.Suspense fallback={<Loading />}>
+                        <Blog />
+                      </React.Suspense>
+                    )}
+                  />
+                  <Route
+                    path="xyzadmin123"
+                    element={(
+                      <React.Suspense fallback={<Loading />}>
+                        <AdminUI />
+                      </React.Suspense>
+                    )}
+                  />
+                </Routes>
+              </Suspense>
+            </Layout>
           )}
         </BrowserRouter>
       </QueryClientProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

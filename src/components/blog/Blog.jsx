@@ -9,7 +9,7 @@ const Blog = () => {
   return (
     <div className='blog'>
       <div className="blog_header">
-        <h1>Blog</h1>
+        <h1>BLOG</h1>
         <div className='socios'>
           <a href="https://www.linkedin.com/in/ekene-emmanuel-0b9167238" target="_blank" rel="noopener noreferrer">
             {socialsIcon.linkedIn}

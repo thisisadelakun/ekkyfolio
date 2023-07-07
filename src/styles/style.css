@@ -62,6 +62,7 @@ body.light-mode .header-home {
 }
 
 .header-col {
+    width: 90%;
     margin: auto;
     padding: 7rem 0 5rem 0;
     position: relative;
@@ -207,6 +208,8 @@ body.light-mode .main-colbgr {
 }
 
 .main-col1 {
+    width: 90%;
+    margin: auto;
     padding: 2rem 0;
     position: relative;
 }
@@ -255,6 +258,11 @@ body.light-mode .main-colbgr {
     justify-content: center;
 }
 
+.skills_col{
+    width: 90%;
+    margin: auto;
+}
+
 
 .service_list {
     text-align: center;
@@ -287,6 +295,7 @@ body.light-mode article {
 .article_col {
     padding: 3rem 0;
     margin: auto;
+    width: 80%;
 }
 
 .article_header h2 {
@@ -462,7 +471,8 @@ body.light-mode article {
 }
 
 .portfolio {
-    margin: -4.5rem 0;
+    margin: -1rem 0;
+
 }
 
 .portfolio_header {
@@ -512,8 +522,9 @@ body.light-mode article {
 }
 
 
-.about_main,
-.portfolio {
+.about_main {
+    width: 90%;
+    margin: auto;
     padding: 4rem 0;
     background-image: none;
 }
