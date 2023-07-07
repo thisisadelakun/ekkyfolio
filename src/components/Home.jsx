@@ -217,9 +217,9 @@ const Home = ({ ...rest }) => {
             ) : (
               authorServices.map(service => (
                 <div key={service.id} className='service_list'>
-                  <img src={service.icon} alt={service.title} width={50} />
+                  <img src={service.icon} alt={service.title} width={80} />
                   <h5>{service.title}</h5>
-                  <p>{service.info}</p>
+                  <p>{service.jobDescription}</p>
                 </div>
               ))
             )}
