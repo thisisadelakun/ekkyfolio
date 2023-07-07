@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-import Home from './components/Home';
-import About from './components/About';
-import Archive from './components/Portfolio';
-import Layout from './layout/Layout';
-import ContactPage from './components/contact/ContactPage';
-import AdminUI from './admin/adminUI/AdminUI';
+const Home = lazy(() => import('./components/Home'));
+const About = lazy(() => import('./components/About'));
+const Archive = lazy(() => import('./components/Portfolio'));
+const ContactPage = lazy(() => import('./components/contact/ContactPage'));
+const AdminUI = lazy(() => import('./admin/adminUI/AdminUI'));
+const Blog = lazy(() => import('./components/blog/Blog'));
 
 import Loading from './hooks/loading/Loading';
-import Blog from './components/blog/Blog';
 
 function App() {
   const queryClient = new QueryClient();
@@ -47,6 +46,7 @@ function App() {
           ) : (
             <Layout >
               <ScrollToTop />
+              <Suspense fallback={<Loading />}></Suspense>
               <Routes>
                 <Route index element={<Home />} />
                 <Route path='about-me' element={<About />} />
