@@ -65,7 +65,7 @@ const NavBar = () => {
                         <FiMenu
                             onClick={handleShow}
                             aria-controls={`offcanvasNavbar-expand-${expand}`}
-                            style={{ width: "30px", height: "50px", cursor: "pointer", marginTop:"1rem" }}
+                            style={{ width: "30px", height: "50px", cursor: "pointer", marginTop: "1rem" }}
                             className='menu-bar'
                         />
                         <Navbar.Offcanvas
@@ -124,7 +124,7 @@ const NavBar = () => {
                                     </li>
                                     <li className="nav-item nav-item-border">
                                         <Link
-                                            to="/portfolio"
+                                            to="/my-blog"
                                             className="nav-link"
                                             onClick={() => closeMenu()}
                                             exact="true"

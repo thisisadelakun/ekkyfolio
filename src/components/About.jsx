@@ -1,11 +1,48 @@
-import React from 'react';
-import { aboutAuthor, authorDetails, authorInfo, socialsIcon } from '../localStorage/db';
-import TimeLines from './TimeLines';
-
+import React, { useEffect } from 'react';
+import { useQuery, useQueryClient } from 'react-query';
 import { Link } from 'react-scroll';
 import Faq from './Faq';
+import TimeLines from './TimeLines';
+import { firestore } from '../hooks/Firebase/firebase';
+import { socialsIcon, authorDetails } from '../localStorage/db';
+
+
+import Skeleton from 'react-loading-skeleton';
+import Loading from '../hooks/loading/Loading';
+
 
 const About = () => {
+
+    const queryClient = useQueryClient();
+
+    const fetchAuthorInfo = async () => {
+        // Fetch author info
+        const docRef = firestore.collection('authorInfo').doc('authorInfos');
+        const docSnapshot = await docRef.get();
+
+        if (docSnapshot.exists) {
+            return docSnapshot.data();
+        } else {
+            throw new Error('Author info not found');
+        }
+    };
+
+    const { data: authorInfo, isLoading: authorInfoLoading } = useQuery('authorInfo', fetchAuthorInfo, {
+        enabled: false, // Disable auto-fetching
+        staleTime: Infinity, // Disable auto-fetching
+        refetchOnWindowFocus: false, // Disable refetch on window focus
+    });
+
+
+
+    const fetchAllData = async () => {
+        await queryClient.prefetchQuery('authorInfo');
+    };
+
+    useEffect(() => {
+        fetchAllData(); // Fetch data when the component is mounted or page is refreshed
+    }, []);
+
     return (
         <div className='about'>
             <header>
@@ -30,12 +67,22 @@ const About = () => {
 
             <main className='about_main container'>
                 <div className='about_profile container'>
-                    <img src={authorInfo.img} alt={authorInfo.name} className='img-fluid' />
+                    <div>
+                        {authorInfoLoading || !authorInfo ? (
+                            <div>
+                                <Loading />
+                            </div>
+                        ) : (
+                            <div>
+                                <img src={authorInfo.profilePic} alt={authorInfo.firstName} className='img-fluid shadow' />
+                            </div>
+                        )}
 
+                    </div>
                     <div className="about_profile_text">
                         <h2>{authorDetails.title}</h2>
                         <p>" No great man lives in vain "</p>
-                        <div className="read_more_div hide">
+                        <div className="read_more_div ">
                             <span className='read_more shadow'>
                                 <Link
                                     style={{ cursor: "pointer" }}
@@ -48,21 +95,32 @@ const About = () => {
                                 >
                                     EXPERIENCE
                                 </Link>
-
                             </span>
                         </div>
                     </div>
                 </div>
 
-                <div className="about_main-col container">
-                    <div className="about_text">
-                        <p>{aboutAuthor.aboutMe1}</p>
-                        <p>{aboutAuthor.aboutMe2}</p>
-                        <p>{aboutAuthor.aboutMe3}</p>
-                        <p>{aboutAuthor.aboutMe4}</p>
+                {authorInfoLoading || !authorInfo ? (
+                    <div>
+                        <Skeleton height={500} width={450} />
+                        <Skeleton height={500} width={450} />
+                        <Skeleton height={500} width={450} />
+                        <Skeleton height={500} width={450} />
+                        <Skeleton height={500} width={450} />
                     </div>
-                </div>
+                ) : (
+                    <div className="about_main-col container">
+                        <div className="about_text">
+                            <p>{authorInfo.aboutPg1}</p>
+                            <p>{authorInfo.aboutPg2}</p>
+                            <p>{authorInfo.aboutPg3}</p>
+                            <p>{authorInfo.aboutPg4}</p>
+                            <p>{authorInfo.aboutPg5}</p>
+                        </div>
+                    </div>
+                )}
             </main>
+
 
             <article className='experience_col container'>
                 <div className='experience_header'>
@@ -75,7 +133,7 @@ const About = () => {
             </article>
 
             <footer>
-                <Faq/>
+                <Faq />
             </footer>
         </div>
     )

@@ -29,13 +29,19 @@ const Footer = () => {
         <div className='author_infos-col'>
           <div className="author_info">
             <p>{authorInfo.name}</p>
-            <a href="mailto:johndoe@gmail">{authorInfo.email}</a> <br />
+            <a href="mailto:info@ekeneemanuel.com">{authorInfo.email}</a> <br />
             <a href="tel:+1234567890">{authorInfo.number}</a>
           </div>
           <div className='social_media'>
-            <a href="www.linkedin.com"><img src={socialsIcon.icon1} alt="email" width={35} /></a>
-            <a href="www.github.com"><img src={socialsIcon.icon3} alt="email" width={35} /></a>
-            <a href="www.twitter.com" target='_blank'><img src={socialsIcon.icon2} alt="email" width={35} /></a>
+            <a href="https://www.linkedin.com/in/ekene-emmanuel-0b9167238" target="_blank" rel="noopener noreferrer">
+              {socialsIcon.linkedIn}
+            </a>
+            <a href="https://twitter.com/ekky_boss" target="_blank" rel="noopener noreferrer">
+              {socialsIcon.twitter}
+            </a>
+            <a href="https://www.instagram.com/ekky_boss" target="_blank" rel="noopener noreferrer">
+              {socialsIcon.instagram}
+            </a>
           </div>
         </div>
         <div className="copyright">

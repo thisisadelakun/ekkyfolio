@@ -1,32 +1,43 @@
-// ContactForm.jsx
 import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
-import database from '../Firebase/firebase';
+import { Form, Button, Modal } from 'react-bootstrap';
+import { firestore } from '../Firebase/firebase';
 
 const ContactForm = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+    const [showModal, setShowModal] = useState(false); // State to control success modal visibility
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Save the contact information to Firebase
-        database.ref('ekene_emmanuel_contacts').push({
-            name,
-            email,
-            message,
-        });
+        try {
+            // Save form data to Firebase
+            await firestore.collection('contacts').add({
+                name,
+                email,
+                message,
+            });
 
-        // Reset the form fields
-        setName('');
-        setEmail('');
-        setMessage('');
+            // Reset form fields
+            setName('');
+            setEmail('');
+            setMessage('');
+
+            // Show success modal
+            setShowModal(true);
+        } catch (error) {
+            console.error('Error submitting form:', error);
+        }
+    };
+
+    const handleCloseModal = () => {
+        setShowModal(false);
     };
 
     return (
         <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="formName">
+            <Form.Group style={{ margin: '1rem 0' }} controlId="formName">
                 <Form.Label>Name</Form.Label>
                 <Form.Control
                     type="text"
@@ -37,7 +48,7 @@ const ContactForm = () => {
                 />
             </Form.Group>
 
-            <Form.Group controlId="formEmail">
+            <Form.Group style={{ margin: '1rem 0' }} controlId="formEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control
                     type="email"
@@ -48,7 +59,7 @@ const ContactForm = () => {
                 />
             </Form.Group>
 
-            <Form.Group controlId="formMessage">
+            <Form.Group style={{ margin: '1rem 0' }} controlId="formMessage">
                 <Form.Label>Message</Form.Label>
                 <Form.Control
                     as="textarea"
@@ -60,9 +71,23 @@ const ContactForm = () => {
                 />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
-                Submit
+            <Button style={{ margin: '1rem 0' }} variant="primary" type="submit">
+                Send Message
             </Button>
+
+            <Modal style={{ color: '#0D1117' }} show={showModal} onHide={handleCloseModal}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Success</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <p>Thank you for your message! We will get back to you soon.</p>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="primary" onClick={handleCloseModal}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </Form>
     );
 };

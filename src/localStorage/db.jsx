@@ -8,7 +8,6 @@ import machinelearning from '../assets/machine_data.svg';
 import logo1 from '../assets/ekenelogo1.svg'
 import logo2 from '../assets/ekenelogo2.svg'
 import { MdOutlineWhatsapp, MdOutlineEmail } from 'react-icons/md'
-import { AiTwotoneMail } from 'react-icons/ai'
 import { FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa'
 import icon1 from '../assets/Icon1.svg'
 import icon2 from '../assets/Icon2.svg'
@@ -17,11 +16,12 @@ import icon3 from '../assets/Icon3.svg'
 
 export const authorInfo = {
     name: "Ekene Emmanuel",
-    email: "johndoe@gmail.com",
+    email: "info@ekeneemanuel.com",
     number: "+1-23- 4567-8900",
     location: "lorem ipsum dolor sit",
     jobTitle1: "Data Scientist",
     jobTitle2: "Business Analyst",
+    jobDescription:"Unleashing Insights, Delivering Impactful Results, and Empowering Data-Driven Strategies.",
     img: profilepic,
     logo1: logo1,
     logo2: logo2,
@@ -133,7 +133,7 @@ export const authorSkils = [
 ]
 
 export const socialsIcon = {
-    emailIcon: <AiTwotoneMail className='socialIcons' />,
+    emailIcon: <MdOutlineEmail className='socialIcons' />,
     whatsappIcon: <MdOutlineWhatsapp className='socialIcons' />,
     linkedIn: <FaLinkedin className='socialIcons' />,
     instagram: <FaInstagram className='socialIcons' />,

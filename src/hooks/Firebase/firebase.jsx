@@ -1,23 +1,32 @@
-// firebase.jsx
-import firebase from 'firebase/app';
-import 'firebase/database';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+import 'firebase/compat/storage';
+import "firebase/compat/auth";
+import "firebase/compat/analytics";
 
-// Add your Firebase project configuration here
+
 const firebaseConfig = {
-    apiKey: 'YOUR_API_KEY',
-    authDomain: 'YOUR_AUTH_DOMAIN',
-    databaseURL: 'YOUR_DATABASE_URL',
-    projectId: 'YOUR_PROJECT_ID',
-    storageBucket: 'YOUR_STORAGE_BUCKET',
-    messagingSenderId: 'YOUR_MESSAGING_SENDER_ID',
-    appId: 'YOUR_APP_ID',
+    apiKey: "AIzaSyANg18z5iaMwkRol-HnfjgZKPujNzW57nU",
+    authDomain: "ekkyfolio.firebaseapp.com",
+    projectId: "ekkyfolio",
+    storageBucket: "ekkyfolio.appspot.com",
+    messagingSenderId: "1010790668888",
+    appId: "1:1010790668888:web:a261841d6f61bd968e082d",
+    measurementId: "G-TTFS6QPM8B"
 };
 
-// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// Create a Firebase database reference
-const database = firebase.database();
+const firestore = firebase.firestore();
+const storage = firebase.storage();
+const auth = firebase.auth();
+const analytics = firebase.analytics();
 
-// Export the database reference
-export default database;
+
+export {
+    firebase,
+    analytics,
+    auth,
+    firestore,
+    storage,
+}
